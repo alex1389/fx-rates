@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Upwork Proposal Assistant — Settings</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      max-width: 560px;
+      margin: 32px auto;
+      color: #1c2b34;
+      padding: 0 16px;
+    }
+    h1 {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    p.sub {
+      color: #57666d;
+      margin-top: 0;
+      font-size: 13px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 13px;
+      margin: 18px 0 6px;
+    }
+    input[type="text"], input[type="password"], select, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 10px;
+      border: 1px solid #d5d9dd;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .hint {
+      color: #78868d;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    button {
+      margin-top: 20px;
+      background: #148a5a;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    #saved {
+      color: #148a5a;
+      font-size: 13px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upwork Proposal Assistant</h1>
+  <p class="sub">Runs entirely in your browser — your API key and profile are stored locally and only sent to Anthropic when you generate or review a proposal.</p>
+
+  <label for="apiKey">Anthropic API key</label>
+  <input type="password" id="apiKey" placeholder="sk-ant-..." autocomplete="off" />
+  <div class="hint">Get a key at console.anthropic.com. Never shared with anyone but Anthropic's API.</div>
+
+  <label for="model">Model</label>
+  <select id="model">
+    <option value="claude-opus-4-8">Claude Opus 4.8 (best quality)</option>
+    <option value="claude-sonnet-5">Claude Sonnet 5 (faster, cheaper)</option>
+    <option value="claude-haiku-4-5">Claude Haiku 4.5 (fastest, cheapest)</option>
+  </select>
+
+  <label for="tone">Preferred tone</label>
+  <select id="tone">
+    <option value="confident and professional">Confident and professional</option>
+    <option value="warm and conversational">Warm and conversational</option>
+    <option value="direct and no-nonsense">Direct and no-nonsense</option>
+  </select>
+
+  <label for="profile">Your background / skills (used as context for every proposal)</label>
+  <textarea id="profile" placeholder="e.g. Full-stack developer, 6 years experience with React and Node.js. Built e-commerce platforms for 3 Shopify Plus stores. Fast communicator, available 30+ hrs/week."></textarea>
+  <div class="hint">The more specific this is, the less generic your generated proposals will read.</div>
+
+  <button id="save">Save settings</button>
+  <span id="saved" hidden>Saved</span>
+
+  <script src="options.js"></script>
+</body>
+</html>
